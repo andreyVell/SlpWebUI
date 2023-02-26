@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserRegistrationRequest } from '../models/userRegistrationRequest';
 import { Observable } from 'rxjs/internal/Observable';
 import { BackendApiEndpoints } from '../endpoint_helpers/backendApiEndpoints';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrationService {
+export class CurrentUserService {
 
   constructor(private http: HttpClient) { }
 
-  public register (user: UserRegistrationRequest) : Observable<any>{
-    return this.http.post<any>(
-      BackendApiEndpoints.user_registration_endpoint, 
-      user
-      );
+  public getCurrentUserId () : Observable<any>{
+    return this.http.get(
+      BackendApiEndpoints.user_getCrrentUserId_endpoint,
+      { responseType: 'text'},);
   }
 }

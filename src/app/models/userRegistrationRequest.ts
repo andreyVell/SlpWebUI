@@ -1,4 +1,4 @@
-export class UserRegistrationDto {
+export class UserRegistrationRequest{
     FirstName = "";
     Login = '';
     Password = '';
