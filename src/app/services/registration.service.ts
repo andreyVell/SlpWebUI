@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserRegistrationRequest } from '../models/userRegistrationRequest';
+import { UserRegistrationRequest } from '../models/Registration/userRegistrationRequest';
 import { Observable } from 'rxjs/internal/Observable';
-import { BackendApiEndpoints } from '../endpoint_helpers/backendApiEndpoints';
+import { BackendApiEndpoints } from '../helpers/backendApiEndpoints';
 
 @Injectable({
   providedIn: 'root'

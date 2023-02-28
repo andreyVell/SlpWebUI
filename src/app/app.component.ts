@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from './services/authentication.service';
 import { RegistrationService } from './services/registration.service';
 import { CurrentUserService } from './services/current_user.service';
-import { UserAuthenticationRequest } from './models/userAuthenticationRequest';
-import { UserRegistrationRequest } from './models/userRegistrationRequest';
-import { UserAuthenticationResponce } from './models/userAuthenticationResponce';
+import { UserAuthenticationRequest } from './models/Authentication/userAuthenticationRequest';
+import { UserRegistrationRequest } from './models/Registration/userRegistrationRequest';
+import { UserAuthenticationResponce } from './models/Authentication/userAuthenticationResponce';
 
 @Component({
   selector: 'app-root',

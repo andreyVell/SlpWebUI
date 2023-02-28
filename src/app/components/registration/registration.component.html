@@ -1,0 +1,57 @@
+<div class="outer">
+    <div class="container">
+        <div class="row">
+            <div class="offset-md-2 col-lg-5 col-md-7 offset-lg-4 offset-md-3">
+                <div class="panel border bg-white">
+                    <div class="panel-heading">
+                        <h3 class="pt-3 font-weigth-bold">Registration</h3>
+                    </div>
+                    <div class="panel-body p-3">
+                        <form [formGroup]="registrationForm">
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required', 'firstname')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="firstname" type="text" placeholder="First name">
+                                </div>
+                            </div>
+                            <small *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required', 'firstname')" class="text-danger">
+                                *First name is required
+                            </small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="registrationForm.controls['username'].dirty && registrationForm.hasError('required', 'username')">
+                                    <span class="fa fa-user p-2"></span>
+                                    <input formControlName="username" type="text" placeholder="Username">
+                                </div>
+                            </div>
+                            <small *ngIf="registrationForm.controls['username'].dirty && registrationForm.hasError('required', 'username')" class="text-danger">
+                                *Username is required
+                            </small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="registrationForm.controls['password'].dirty && registrationForm.hasError('required', 'password')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="password" [type]="inputPasswordType" placeholder="Password">
+                                    <span [class]="iconPasswordClass" (click)="hideShowPass()"></span>
+                                </div>
+                            </div>
+                            <small *ngIf="registrationForm.controls['password'].dirty && registrationForm.hasError('required', 'password')" class="text-danger">
+                                *Password is required
+                            </small>
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="registrationForm.controls['confirmpassword'].dirty && registrationForm.hasError('required', 'confirmpassword')">
+                                    <span class="fa fa-lock p-2"></span>
+                                    <input formControlName="confirmpassword" [type]="inputPasswordType" placeholder="Confirm password">
+                                    <span [class]="iconPasswordClass" (click)="hideShowPass()"></span>
+                                </div>
+                            </div>
+                            <small *ngIf="registrationForm.controls['confirmpassword'].dirty && registrationForm.hasError('required', 'confirmpassword')" class="text-danger">
+                                *You must confirm password
+                            </small>
+                            <button (click)="onSubmitRegistrationForm()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Register</button>
+                            <div class="text-center pt-4 text-muted">Already have account? <a id="forget" routerLink="/Login">Login</a> </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
