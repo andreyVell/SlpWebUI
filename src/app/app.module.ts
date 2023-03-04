@@ -5,22 +5,28 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthenticationInterceptor } from './services/authentication.interceptor';
+import { AuthenticationInterceptor } from './interceptor/authentication.interceptor';
 import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { NgToastModule } from 'ng-angular-popup'
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    WelcomePageComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgToastModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
