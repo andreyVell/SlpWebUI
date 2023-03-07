@@ -10,7 +10,8 @@ import { LoginComponent } from './components/login/login.component';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { NgToastModule } from 'ng-angular-popup'
+import { NgToastModule } from 'ng-angular-popup';
+import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NgToastModule } from 'ng-angular-popup'
     LoginComponent,
     RegistrationComponent,
     WelcomePageComponent,
-    DashboardComponent
+    DashboardComponent,
+    MainNavBarComponent,
   ],
   imports: [
     BrowserModule,

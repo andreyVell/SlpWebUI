@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({
-  selector: 'app-welcome-page',
-  templateUrl: './welcome-page.component.html',
-  styleUrls: ['./welcome-page.component.css']
+  selector: 'app-main-nav-bar',
+  templateUrl: './main-nav-bar.component.html',
+  styleUrls: ['./main-nav-bar.component.css']
 })
-export class WelcomePageComponent {
+export class MainNavBarComponent {
   constructor (
     private router: Router,
     private authService: AuthenticationService

@@ -38,6 +38,6 @@ export class AuthenticationService {
 
   public isCurrentUserLoggedIn(): boolean {
     //TODO проверить валидность токена (дату истечения)
-    return !!localStorage.getItem(this.authTokenName);
+    return !!this.getAuthTokenFromLocalStorage();
   }
 }

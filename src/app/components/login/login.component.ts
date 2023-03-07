@@ -46,7 +46,6 @@ export class LoginComponent implements OnInit {
   }  
 
   private login(user: UserAuthenticationRequest){
-    //TODO: handle login errors, redirect to main page
     this.authService.login(user).subscribe({
       next: (tokenResponse : UserAuthenticationResponce) => {      
         this.authService.postAuthTokenToLocalStorage(tokenResponse.token);

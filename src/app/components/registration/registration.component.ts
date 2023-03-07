@@ -48,7 +48,6 @@ export class RegistrationComponent implements OnInit {
   }  
 
   private register(user: UserRegistrationRequest){
-    //TODO: handle registration errors, redirect
     this.registerService.register(user).subscribe({
       next: (response) => {     
         this.toast.success({detail: 'Success!', summary: 'The account has been successfully registered!', duration: 4000})
