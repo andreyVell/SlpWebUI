@@ -5,12 +5,13 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { WelcomePageComponent } from './components/welcome-page/welcome-page.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from './guards/auth.guard';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 const routes: Routes = [
   {path: 'Login', component: LoginComponent},
   {path: 'Register', component: RegistrationComponent},
-  {path: '', component: WelcomePageComponent},
-  {path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
+  {path: '', component: MainPageComponent},
+  // {path: 'Dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({

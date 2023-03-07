@@ -1,0 +1,9 @@
+.dashboard-nav-link{
+    font-size: 20px;
+    color:black;
+    cursor: pointer;
+}
+
+.dashboard-nav-link:hover{
+    background-color: #cfe2ff;    
+}

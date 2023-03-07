@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(user).subscribe({
       next: (tokenResponse : UserAuthenticationResponce) => {      
         this.authService.postAuthTokenToLocalStorage(tokenResponse.token);
-        this.router.navigate(['Dashboard']);
+        this.router.navigate(['']);
         this.toast.success({detail: 'Success!', summary: 'You have successfully logged in!', duration: 4000})
       },
       error: (err) =>{

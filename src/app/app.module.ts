@@ -12,6 +12,7 @@ import { WelcomePageComponent } from './components/welcome-page/welcome-page.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MainNavBarComponent } from './components/main-nav-bar/main-nav-bar.comp
     WelcomePageComponent,
     DashboardComponent,
     MainNavBarComponent,
+    MainPageComponent,
   ],
   imports: [
     BrowserModule,
