@@ -1,0 +1,35 @@
+<mat-tab-group animationDuration="0ms" class="font-weigth-bold">
+    <mat-tab>  
+        <ng-template mat-tab-label>
+            <span class="tab-header">Current</span>
+        </ng-template>      
+        <ng-template matTabContent>
+            <div class="container-fluid">
+                <button type="button" class="btn btn-outline-primary" (click)="openAddEditTaskForm()">
+                    <i class="fa-solid fa-plus"></i>
+                </button> 
+                <div class="container mt-2">
+                    <div class="card">
+                        <div class="card-header">
+                          Daily Tasks
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Task 1</li>
+                          <li class="list-group-item">Task 2</li>
+                          <li class="list-group-item">Task 3</li>
+                          <li class="list-group-item">Task 4</li>
+                        </ul>
+                      </div>
+                  </div>                    
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab> 
+        <ng-template mat-tab-label>
+            <span class="tab-header">Completed</span>
+        </ng-template>
+        <ng-template matTabContent>
+            Content 1 - Loaded:
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

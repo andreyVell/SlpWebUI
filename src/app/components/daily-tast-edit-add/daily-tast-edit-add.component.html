@@ -1,0 +1,35 @@
+<div class="container mt-3">
+    <h3>Create a new daily task</h3>
+</div>
+<form [formGroup]="dailyTaskForm">
+    <div mat-dialog-content class="content pt-1 pb-1">
+        <div class="form-group pt-1">
+            <div class="input-field" [class.error]="dailyTaskForm.controls['name'].dirty && dailyTaskForm.hasError('required', 'name')">
+                <span class="fa-solid fa-signature p-2"></span>
+                <input formControlName="name" type="text" placeholder="Name">
+            </div>
+        </div>
+        <small *ngIf="dailyTaskForm.controls['name'].dirty && dailyTaskForm.hasError('required', 'name')" class="text-danger">
+            *Name is required
+        </small>
+        <div class="form-group pt-3">
+            <textarea class="form-control" formControlName="description" type="text" placeholder="Description" rows="4" style="resize:none;"></textarea>
+        </div>
+        
+        <div class="form-group pt-3">
+            <mat-form-field appearance="outline" [class.error]="dailyTaskForm.controls['deadLineDate'].dirty && dailyTaskForm.hasError('required', 'deadLineDate')">
+                <mat-label>Deadline</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="deadLineDate">                
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <small *ngIf="dailyTaskForm.controls['deadLineDate'].dirty && dailyTaskForm.hasError('required', 'deadLineDate')" class="text-danger">
+            *Deadline is required
+        </small>
+    </div>
+    <div mat-dialog-actions>
+        <button class="btn btn-primary" type="submit" (click)="onFormSubmit()">{{data ? 'Save': 'Add'}}</button>
+        <button class="btn btn-outlined-primary" type="button" [mat-dialog-close]="false">Cancel</button>
+    </div>
+</form>

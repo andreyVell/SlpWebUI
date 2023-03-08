@@ -1,0 +1,55 @@
+<div>
+    <div class="container">
+      <div class="row justify-content-md-center mt-3 ml-0 mr-0 p-0">
+        <div class="col col-lg-2">
+          <div class="d-flex flex-column flex-shrink-0 p-3 ">        
+            <ul class="nav nav-pills flex-column mb-auto">            
+              <li (click)="dashboardClick()">
+                <a class="nav-link dashboard-nav-link">
+                  <i class="fa-regular fa-font-awesome"></i>
+                  Dashboard
+                </a>
+              </li>            
+              <li (click)="dailyTasksClick()">
+                <a class="nav-link dashboard-nav-link">
+                  <i class="fa-solid fa-list-check"></i>
+                  Daily tasks
+                </a>
+              </li>
+              <li>
+                <a class="nav-link dashboard-nav-link">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  Education
+                </a>
+              </li>
+              <li>
+                <a class="nav-link dashboard-nav-link">
+                  <i class="fa-solid fa-dollar-sign"></i>
+                  Finance
+                </a>
+              </li>
+              <li>
+                <a class="nav-link dashboard-nav-link">
+                  <i class="fa-regular fa-futbol"></i>
+                  Sport
+                </a>
+              </li>
+              <li>
+                <a class="nav-link dashboard-nav-link">
+                  <i class="fa-solid fa-book"></i>
+                  Books
+                </a>
+              </li>
+            </ul>   
+          </div>
+        </div>
+        <div class="col bg-white">        
+          <div class="panel border bg-white m-0 p-3">
+            <app-dashboard *ngIf="showDashboard"></app-dashboard>
+            <app-daily-tasks *ngIf="showDailyTasks"></app-daily-tasks>
+        </div>
+        </div>
+      </div>
+    </div>
+</div>
+  

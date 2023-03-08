@@ -1,0 +1,44 @@
+.tab-header
+{
+    font-size: 20px !important;
+    font-weight: bold !important;
+} 
+
+.daily-task-card{
+    background: #E9ECEE;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+.office_object{
+    box-sizing: border-box;
+    display: inline-block;
+    width: 125px;
+    height: 62px;
+    margin-top: 14px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 14px;
+    padding-top: 50px;
+    background: #E9ECEE;
+    border: 3px solid black;
+    border-radius: 20px;
+    
+    
+    
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    text-align: center;
+    /* line-height: 130px; */
+    vertical-align: middle;
+    
+    color: black;
+    }
+    
+    .office_object:hover{
+    /* background: #a2a5a7; */
+    border: 3px solid rgb(60, 154, 255);
+    color: rgb(60, 154, 255);
+    }
+ 
