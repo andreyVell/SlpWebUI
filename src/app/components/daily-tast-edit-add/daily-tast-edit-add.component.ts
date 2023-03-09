@@ -1,7 +1,12 @@
 import { Component, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DateAdapter, MAT_DATE_LOCALE } from '@angular/material/core';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import FormValidation from 'src/app/helpers/formValidation';
+import { AddDailyTaskRequest } from 'src/app/models/DailyTasks/addDailyTaskRequest';
+import { DailyTasksService } from '../../services/daily-tasks.service';
+import { NgToastService } from 'ng-angular-popup';
+import { ApiResponseError } from 'src/app/models/ApiResponceError';
 
 @Component({
   selector: 'app-daily-tast-edit-add',
@@ -10,61 +15,62 @@ import FormValidation from 'src/app/helpers/formValidation';
 })
 export class DailyTastEditAddComponent {
   dailyTaskForm!: FormGroup;
-  data = null;
 
   constructor(
-    private _adapter: DateAdapter<any>,
-    @Inject(MAT_DATE_LOCALE) private _locale: string,
+    private dailyTaskService: DailyTasksService,
+    private toast: NgToastService,
+    private adapter: DateAdapter<any>,
+    private dialogRef: MatDialogRef<DailyTastEditAddComponent>,
+    @Inject(MAT_DATE_LOCALE) private locale: string,
     private formBuilder: FormBuilder,
-  ){
-    this._locale = 'ru';
-    this._adapter.setLocale(this._locale);
+    @Inject(MAT_DIALOG_DATA) public data: any,
+  ) {
+    this.locale = 'ru';
+    this.adapter.setLocale(this.locale);
   }
 
-  ngOnInit(): void {   
+  ngOnInit(): void {
     this.dailyTaskForm = this.formBuilder.group({
       name: ['', Validators.required],
       description: [''],
       deadLineDate: ['', Validators.required]
-     })
+    });
+    this.dailyTaskForm.patchValue(this.data);
   }
 
   onFormSubmit() {
-    if (this.dailyTaskForm.valid){
-      // const regUser = new UserRegistrationRequest();
-      // regUser.FirstName = this.dailyTaskForm.value.firstname;
-      // regUser.Login = this.dailyTaskForm.value.username;
-      // regUser.Password = this.dailyTaskForm.value.password;
-      // this.register(regUser);
-      
+    if (this.dailyTaskForm.valid) {
+      if (this.data) {
+        //edit
+      } else {
+        //add
+        const newTask = new AddDailyTaskRequest();
+        newTask.Name = this.dailyTaskForm.value.name;
+        newTask.Description = this.dailyTaskForm.value.description;
+        newTask.IsCompleted = 'false';        
+        newTask.DeadLineDate = this.dailyTaskForm.value.deadLineDate;
+        this.addDailyTask(newTask);
+      }
     }
-    else{
+    else {
       FormValidation.validateAllFormFields(this.dailyTaskForm);
     }
-    // if (this.empForm.valid) {
-    //   if (this.data) {
-    //     this._empService
-    //       .updateEmployee(this.data.id, this.empForm.value)
-    //       .subscribe({
-    //         next: (val: any) => {
-    //           this._coreService.openSnackBar('Employee detail updated!');
-    //           this._dialogRef.close(true);
-    //         },
-    //         error: (err: any) => {
-    //           console.error(err);
-    //         },
-    //       });
-    //   } else {
-    //     this._empService.addEmployee(this.empForm.value).subscribe({
-    //       next: (val: any) => {
-    //         this._coreService.openSnackBar('Employee added successfully');
-    //         this._dialogRef.close(true);
-    //       },
-    //       error: (err: any) => {
-    //         console.error(err);
-    //       },
-    //     });
-    //   }
-    // }
+  }
+
+  private addDailyTask(newDailyTask: AddDailyTaskRequest) {
+    this.dailyTaskService.addDailyTask(newDailyTask).subscribe({
+      next: (val: any) => {
+        this.toast.success({ detail: 'Success!', summary: 'Task has been added!', duration: 4000 })
+        this.dialogRef.close(true);
+      },
+      error: (err) =>{
+        const apiError : ApiResponseError = err.error;   
+        if (apiError.errorMessage){          
+          this.toast.error({detail: 'Error!', summary: apiError.errorMessage, duration: 4000})
+        }else{
+          this.toast.error({detail: 'Error!', summary: "Something went wrong", duration: 4000})
+        }   
+      },
+    });
   }
 }
