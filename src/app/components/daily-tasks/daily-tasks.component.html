@@ -5,102 +5,61 @@
         </ng-template>
         <ng-template matTabContent>
             <div class="container-fluid">
-                <button type="button" class="btn btn-outline-primary" (click)="openAddEditTaskForm()">
-                    <i class="fa-solid fa-plus"></i>
-                </button>
-                <div class="container">
-                    <div class="daily-task-current">
-                        <div class="row">
-                            <div>
-                                <div class="">
-                                    <div class="row">
-                                        <div class="col-9 pr-0">
-                                            <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 140px;">
-                                                <h4 class="text-wrap p-0">NameNameNameNameNameNameNameName</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="container overflow-auto m-2 mt-0" style="max-height: 100px; max-width: 195px;">
-                                            <span class="text-wrap text-break overflow-auto">DescriptionDescriptionDescriptionDescription</span>
-                                        </div>
-                                    </div>
-                                    <hr class="m-0">
-                                    <div class="row">
-                                        <div class="col-7 pr-0">
-                                            <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 140px;">
-                                                <span class="text-wrap p-0">
-                                                    <i class="fa-regular fa-calendar"></i>
-                                                    Jul 26, 2019
-                                                </span>
-                                            </div>
-                                        </div>
-                                        <div class="col-2">
-                                            <div class="row">
-                                                <div class="daily-task-card-complete-button d-flex justify-content-center align-items-center" title="Complete!">
-                                                    <i class="fa-solid fa-check" style="font-size: 27px"></i>
-                                                </div>                                 
-                                            </div>                                
-                                        </div> 
-                                        <div class="col-2">
-                                            <div class="row">
-                                                <div class="daily-task-card-edit-button d-flex justify-content-center align-items-center" title="Edit">
-                                                    <i class="fa-solid fa-pencil" style="font-size: 24px"></i>
-                                                </div>                                 
-                                            </div>                                
-                                        </div>                             
-                                    </div>
-                                </div>
-                            </div>                            
+                <div class="container mt-4">
+                    <div class="row d-flex justify-content-center">  
+                        <div class="daily-task-current daily-task-current-button d-flex justify-content-center align-items-center" (click)="openAddEditTaskForm()" title="Create new daily task">
+                            <div>                                
+                                <i class="fa-solid fa-plus" style="font-size: 150px"></i>
+                            </div>
                         </div>
-                    </div>  
-                    <div class="daily-task-current">
-                        <div class="row">
-                            <div>
-                                <div class="">
-                                    <div class="row">
-                                        <div class="col-9 pr-0">
-                                            <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 140px;">
-                                                <h4 class="text-wrap p-0">NameNameNameNameNameNameNameName</h4>
+                        <div class="daily-task-current" *ngFor="let dailyTask of dailyTasks.items">
+                            <div class="row">
+                                <div>
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-11 pr-0">
+                                                <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 180px;">
+                                                    <h4 class="text-wrap p-0">{{dailyTask.name}}</h4>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="container overflow-auto m-2 mt-0" style="max-height: 100px; max-width: 195px;">
-                                            <span class="text-wrap text-break overflow-auto">DescriptionDescriptionDescriptionDescription</span>
-                                        </div>
-                                    </div>
-                                    <hr class="m-0">
-                                    <div class="row">
-                                        <div class="col-7 pr-0">
-                                            <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 140px;">
-                                                <span class="text-wrap p-0">
-                                                    <i class="fa-regular fa-calendar"></i>
-                                                    Jul 26, 2019
-                                                </span>
+                                        <div class="row">
+                                            <div class="container overflow-auto m-2 mt-0" style="max-height: 100px; max-width: 195px;">
+                                                <span class="text-wrap text-break overflow-auto">{{dailyTask.description}}</span>
                                             </div>
                                         </div>
-                                        <div class="col-2">
-                                            <div class="row">
-                                                <div class="daily-task-card-complete-button d-flex justify-content-center align-items-center" title="Complete!">
-                                                    <i class="fa-solid fa-check" style="font-size: 27px"></i>
-                                                </div>                                 
-                                            </div>                                
-                                        </div> 
-                                        <div class="col-2">
-                                            <div class="row">
-                                                <div class="daily-task-card-edit-button d-flex justify-content-center align-items-center" title="Edit">
-                                                    <i class="fa-solid fa-pencil" style="font-size: 24px"></i>
-                                                </div>                                 
-                                            </div>                                
-                                        </div>                             
+                                        <hr class="m-0">
+                                        <div class="row">
+                                            <div class="col-7 pr-0">
+                                                <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 140px;">
+                                                    <span class="text-wrap p-0">
+                                                        <i class="fa-regular fa-calendar"></i>
+                                                        Jul 26, 2019
+                                                        {{dailyTask.deadLineDate}}                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="daily-task-card-complete-button d-flex justify-content-center align-items-center" title="Complete!">
+                                                        <i class="fa-solid fa-check" style="font-size: 27px"></i>
+                                                    </div>                                 
+                                                </div>                                
+                                            </div> 
+                                            <div class="col-2">
+                                                <div class="row">
+                                                    <div class="daily-task-card-edit-button d-flex justify-content-center align-items-center" title="Edit">
+                                                        <i class="fa-solid fa-pencil" style="font-size: 24px"></i>
+                                                    </div>                                 
+                                                </div>                                
+                                            </div>                             
+                                        </div>
                                     </div>
-                                </div>
-                            </div>                            
-                        </div>
-                    </div>                    
-                </div>
-                
+                                </div>                            
+                            </div>
+                        </div>                                      
+                    </div>                  
+                </div>                
             </div>
         </ng-template>
     </mat-tab>

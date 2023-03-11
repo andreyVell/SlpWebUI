@@ -8,10 +8,10 @@ import { BackendApiEndpoints } from '../helpers/backendApiEndpoints';
 })
 export class CurrentUserService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   public getCurrentUserId () : Observable<any>{
-    return this.http.get(
+    return this.httpClient.get(
       BackendApiEndpoints.user_getCrrentUserId_endpoint,
       { responseType: 'text'},);
   }

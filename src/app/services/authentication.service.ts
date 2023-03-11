@@ -13,11 +13,11 @@ export class AuthenticationService {
   authTokenName = 'authToken';
 
   constructor(
-    private http: HttpClient,
+    private httpClient: HttpClient,
     private router: Router) { }
 
   public login(user: UserAuthenticationRequest): Observable<any> {
-    return this.http.post<UserAuthenticationResponce>(
+    return this.httpClient.post<UserAuthenticationResponce>(
       BackendApiEndpoints.user_authentication_endpoint,
       user, { responseType: 'json' }
     );

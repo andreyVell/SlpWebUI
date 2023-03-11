@@ -10,15 +10,17 @@ import { BackendApiEndpoints } from '../helpers/backendApiEndpoints';
 export class DailyTasksService {
 
   constructor(
-    private http: HttpClient
+    private httpClient: HttpClient
   ) { }
 
-  public getDailyTasks() {
-
+  public getDailyTasks() : Observable<any> {
+    return this.httpClient.get<any>(
+      BackendApiEndpoints.get_daily_tasks_endpoint
+      );
   }
 
   public addDailyTask(newDailyTask : AddDailyTaskRequest) : Observable<any>{
-    return this.http.post<any>(
+    return this.httpClient.post<any>(
       BackendApiEndpoints.add_daily_task_endpoint, 
       newDailyTask
       );

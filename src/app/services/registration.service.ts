@@ -9,10 +9,10 @@ import { BackendApiEndpoints } from '../helpers/backendApiEndpoints';
 })
 export class RegistrationService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   public register (user: UserRegistrationRequest) : Observable<any>{
-    return this.http.post<any>(
+    return this.httpClient.post<any>(
       BackendApiEndpoints.user_registration_endpoint, 
       user
       );
