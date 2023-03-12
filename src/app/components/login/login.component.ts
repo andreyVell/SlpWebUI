@@ -51,15 +51,7 @@ export class LoginComponent implements OnInit {
         this.authService.postAuthTokenToLocalStorage(tokenResponse.token);
         this.router.navigate(['']);
         this.toast.success({detail: 'Success!', summary: 'You have successfully logged in!', duration: 4000})
-      },
-      error: (err) =>{
-        const apiError : ApiResponseError = err.error;   
-        if (apiError.errorMessage){          
-          this.toast.error({detail: 'Error!', summary: apiError.errorMessage, duration: 4000})
-        }else{
-          this.toast.error({detail: 'Error!', summary: "Something went wrong", duration: 4000})
-        }    
-      },
+      }
     });
   }
 

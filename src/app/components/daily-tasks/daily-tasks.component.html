@@ -1,7 +1,7 @@
 <mat-tab-group animationDuration="0ms" class="font-weigth-bold">
     <mat-tab>
         <ng-template mat-tab-label>
-            <span class="tab-header">Current</span>
+            <span class="tab-header">Current ({{currentDailyTasksCount}})</span>
         </ng-template>
         <ng-template matTabContent>
             <div class="container-fluid">
@@ -12,7 +12,7 @@
                                 <i class="fa-solid fa-plus" style="font-size: 150px"></i>
                             </div>
                         </div>
-                        <div class="daily-task-current" *ngFor="let dailyTask of dailyTasks.items">
+                        <div class="daily-task-current" *ngFor="let dailyTask of currentDailyTasks">
                             <div class="row">
                                 <div>
                                     <div class="">
@@ -30,12 +30,11 @@
                                         </div>
                                         <hr class="m-0">
                                         <div class="row">
-                                            <div class="col-7 pr-0">
-                                                <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 140px;">
-                                                    <span class="text-wrap p-0">
+                                            <div class="col-7" style="padding-right: 0px !important">
+                                                <div class="container overflow-hidden p-0 m-2">
+                                                    <span class="p-0 m-0">
                                                         <i class="fa-regular fa-calendar"></i>
-                                                        Jul 26, 2019
-                                                        {{dailyTask.deadLineDate}}                                                        
+                                                        {{dailyTask.deadLineDate | date: 'dd MMM yyyy'}}                                                    
                                                     </span>
                                                 </div>
                                             </div>
@@ -65,10 +64,46 @@
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <span class="tab-header">Completed</span>
+            <span class="tab-header">Completed ({{completedDailyTasksCount}})</span>
         </ng-template>
         <ng-template matTabContent>
-            Content 1 - Loaded:
+            <div class="container-fluid">
+                <div class="container mt-4">
+                    <div class="row d-flex justify-content-center">
+                        <div class="daily-task-current" *ngFor="let dailyTask of completedDailyTasks">
+                            <div class="row">
+                                <div>
+                                    <div class="">
+                                        <div class="row">
+                                            <div class="col-11 pr-0">
+                                                <div class="container overflow-hidden m-2 p-0 mr-0" style="max-width: 180px;">
+                                                    <h4 class="text-wrap p-0">{{dailyTask.name}}</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="container overflow-auto m-2 mt-0" style="max-height: 100px; max-width: 195px;">
+                                                <span class="text-wrap text-break overflow-auto">{{dailyTask.description}}</span>
+                                            </div>
+                                        </div>
+                                        <hr class="m-0">
+                                        <div class="row">
+                                            <div class="col-7" style="padding-right: 0px !important">
+                                                <div class="container overflow-hidden p-0 m-2">
+                                                    <span class="p-0 m-0">
+                                                        <i class="fa-regular fa-calendar"></i>
+                                                        {{dailyTask.deadLineDate | date: 'dd MMM yyyy'}}                                                    
+                                                    </span>
+                                                </div>
+                                            </div>                                              
+                                        </div>
+                                    </div>
+                                </div>                            
+                            </div>
+                        </div>                                      
+                    </div>                  
+                </div>                
+            </div>
         </ng-template>
     </mat-tab>
 </mat-tab-group>

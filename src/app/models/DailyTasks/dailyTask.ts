@@ -3,5 +3,5 @@ export class DailyTask {
     name: string = '';
     description: string = '';
     isCompleted: boolean = false;
-    deadLineDate: Date = new Date();
+    deadLineDate!: Date;
 }

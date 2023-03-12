@@ -62,15 +62,7 @@ export class DailyTastEditAddComponent {
       next: (val: any) => {
         this.toast.success({ detail: 'Success!', summary: 'Task has been added!', duration: 4000 })
         this.dialogRef.close(true);
-      },
-      error: (err) =>{
-        const apiError : ApiResponseError = err.error;   
-        if (apiError.errorMessage){          
-          this.toast.error({detail: 'Error!', summary: apiError.errorMessage, duration: 4000})
-        }else{
-          this.toast.error({detail: 'Error!', summary: "Something went wrong", duration: 4000})
-        }   
-      },
+      }
     });
   }
 }

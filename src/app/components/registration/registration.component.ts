@@ -51,15 +51,7 @@ export class RegistrationComponent implements OnInit {
     this.registerService.register(user).subscribe({
       next: (response) => {     
         this.toast.success({detail: 'Success!', summary: 'The account has been successfully registered!', duration: 4000})
-      },
-      error: (err) =>{
-        const apiError : ApiResponseError = err.error;   
-        if (apiError.errorMessage){          
-          this.toast.error({detail: 'Error!', summary: apiError.errorMessage, duration: 4000})
-        }else{
-          this.toast.error({detail: 'Error!', summary: "Something went wrong", duration: 4000})
-        }   
-      },
+      }
     });
   }
 
