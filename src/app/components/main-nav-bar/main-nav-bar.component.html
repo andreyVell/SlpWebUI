@@ -2,21 +2,13 @@
     <nav class="navbar navbar-expand-lg bg-primary container-xxl bd-gutter flex-wrap flex-lg-nowrap"
         data-bs-theme="white" aria-label="Main navigation">
         <div class="container-fluid">
-            <a class="navbar-brand text-white" href="" >
+            <a class="navbar-brand text-white" href="">
                 <i class="fa-solid fa-calendar-days"></i>
                 Life Planner
             </a>
 
             <div class="navbar-collapse collapse">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0" *ngIf="this.isUserLoggedIn()">
-                    <!-- Some stuff(maybe links and others....) -->
-                    <!-- TODO сделать подсветку текущей страницы -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li> -->
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="/Dashboard">Dashboard</a>
-                    </li> -->
                 </ul>
             </div>
             <div *ngIf="!this.isUserLoggedIn()">
